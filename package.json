@@ -1,0 +1,24 @@
+{
+  "name": "taskmanagement-api",
+  "version": "1.0.0",
+  "description": "task management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abc-kosovo/taskmanagement-api.git"
+  },
+  "keywords": [
+    "api",
+    "test",
+    "task"
+  ],
+  "author": "F",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abc-kosovo/taskmanagement-api/issues"
+  },
+  "homepage": "https://github.com/abc-kosovo/taskmanagement-api#readme"
+}
