@@ -13,11 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // Configuring the database
-mongoose.connect(dbConfig.url, { uri_decode_auth: true });
+mongoose.connect(dbConfig.url);
 
-//remove
-console.log('1', process.env.OPENSHIFT_MONGODB_DB_USERNAME);
-console.log('2', process.env.MONGODB_USER);
 
 mongoose.connection.on('error', function () {
     console.log('Could not connect to the database. Exiting now...');
