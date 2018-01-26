@@ -15,6 +15,10 @@ app.use(bodyParser.json())
 // Configuring the database
 mongoose.connect(dbConfig.url, dbConfig.auth);
 
+//remove
+console.log('1',process.env.OPENSHIFT_MONGODB_DB_USERNAME);
+console.log('2',process.env.MONGODB_USER);
+
 mongoose.connection.on('error', function () {
     console.log('Could not connect to the database. Exiting now...');
     process.exit();
