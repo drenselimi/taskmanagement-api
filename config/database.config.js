@@ -1,7 +1,7 @@
 module.exports = {
-    url: 'mongodb://localhost:27017/abc-kosovo',
+    url: 'mongodb://user0D5:iKawnHusrrbhUCV1@mongodb/taskmanagement',
     auth:{
-        user:'',
-        password:''
+        user:'user0D5',
+        password:'iKawnHusrrbhUCV1'
     }
 }
