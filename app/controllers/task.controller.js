@@ -7,32 +7,33 @@ exports.create = function (req, res) {
     } else {
         if (!req.body.content) {
             res.status(400).send({ message: "Task can not be empty" });
-        }
-        var task = new Task();
-        task.content = req.body.content;
-        task.candidateId = req.params.candidateid;
-        if (req.body.title) {
-            task.title = req.body.title;
-        }
-        if (req.body.status) {
-            task.status = req.body.status;
-        }
-        if (req.body.startDate) {
-            task.startDate = req.body.startDate;
-        }
-        if (req.body.endDate) {
-            task.endDate = req.body.endDate;
-        }
-
-        task.save(function (err, data) {
-            console.log(data);
-            if (err) {
-                console.log(err);
-                res.status(500).send({ message: "Some error occurred while creating the task." });
-            } else {
-                res.send(data);
+        } else {
+            var task = new Task();
+            task.content = req.body.content;
+            task.candidateId = req.params.candidateid;
+            if (req.body.title) {
+                task.title = req.body.title;
             }
-        });
+            if (req.body.status) {
+                task.status = req.body.status;
+            }
+            if (req.body.startDate) {
+                task.startDate = req.body.startDate;
+            }
+            if (req.body.endDate) {
+                task.endDate = req.body.endDate;
+            }
+
+            task.save(function (err, data) {
+                console.log(data);
+                if (err) {
+                    console.log(err);
+                    res.status(500).send({ message: "Some error occurred while creating the task." });
+                } else {
+                    res.send(data);
+                }
+            });
+        }
     }
 };
 
@@ -74,29 +75,30 @@ exports.update = function (req, res) {
         Task.findById(req.params.id, function (err, task) {
             if (err) {
                 res.status(500).send({ message: "Could not find a task with id " + req.params.id });
-            }
+            } else {
 
-            task.content = req.body.content;
-            if (req.body.title) {
-                task.title = req.body.title;
-            }
-            if (req.body.status) {
-                task.status = req.body.status;
-            }
-            if (req.body.startDate) {
-                task.startDate = req.body.startDate;
-            }
-            if (req.body.endDate) {
-                task.endDate = req.body.endDate;
-            }
-
-            task.save(function (err, data) {
-                if (err) {
-                    res.status(500).send({ message: "Could not update task with id " + req.params.id });
-                } else {
-                    res.send(data);
+                task.content = req.body.content;
+                if (req.body.title) {
+                    task.title = req.body.title;
                 }
-            });
+                if (req.body.status) {
+                    task.status = req.body.status;
+                }
+                if (req.body.startDate) {
+                    task.startDate = req.body.startDate;
+                }
+                if (req.body.endDate) {
+                    task.endDate = req.body.endDate;
+                }
+
+                task.save(function (err, data) {
+                    if (err) {
+                        res.status(500).send({ message: "Could not update task with id " + req.params.id });
+                    } else {
+                        res.send(data);
+                    }
+                });
+            }
         });
     }
 };
