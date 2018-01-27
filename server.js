@@ -2,9 +2,13 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var dbConfig = require('./config/database.config.js');
 var mongoose = require('mongoose');
+var cors = require('cors');
 
 // create express app
 var app = express();
+
+//enable cors
+app.use(cors());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
