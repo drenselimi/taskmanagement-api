@@ -5,7 +5,8 @@ var TaskSchema = mongoose.Schema({
     description: String,
     startDate: Date,
     endDate: Date,
-    status: String
+    status: String,
+    candidateId: String
 
 }, {
         timestamps: true,

@@ -9,7 +9,7 @@ exports.create = function (req, res) {
             res.status(400).send({ message: "Task can not be empty" });
         }
         var task = new Task(req.body);
-        task.set({ 'candidateId': req.params.candidateid });
+        task.candidateId = req.params.candidateid;
 
         task.save(function (err, data) {
             console.log(data);
