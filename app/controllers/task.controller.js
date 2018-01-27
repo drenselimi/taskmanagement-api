@@ -9,12 +9,20 @@ exports.create = function (req, res) {
             res.status(400).send({ message: "Task can not be empty" });
         }
         var task = new Task();
-        task.title = req.body.title;
         task.content = req.body.content;
-        task.status = req.body.status;
-        task.startDate = req.body.startDate;
-        task.endDate = req.body.endDate;
         task.candidateId = req.params.candidateid;
+        if (req.body.title) {
+            task.title = req.body.title;
+        }
+        if (req.body.status) {
+            task.status = req.body.status;
+        }
+        if (req.body.startDate) {
+            task.startDate = req.body.startDate;
+        }
+        if (req.body.endDate) {
+            task.endDate = req.body.endDate;
+        }
 
         task.save(function (err, data) {
             console.log(data);
@@ -68,11 +76,19 @@ exports.update = function (req, res) {
                 res.status(500).send({ message: "Could not find a task with id " + req.params.id });
             }
 
-            task.title = req.body.title;
             task.content = req.body.content;
-            task.startDate = req.body.startDate;
-            task.endDate = req.body.endDate;
-            task.status = req.body.status;
+            if (req.body.title) {
+                task.title = req.body.title;
+            }
+            if (req.body.status) {
+                task.status = req.body.status;
+            }
+            if (req.body.startDate) {
+                task.startDate = req.body.startDate;
+            }
+            if (req.body.endDate) {
+                task.endDate = req.body.endDate;
+            }
 
             task.save(function (err, data) {
                 if (err) {
