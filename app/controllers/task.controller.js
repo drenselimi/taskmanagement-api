@@ -3,12 +3,17 @@ var Task = require('../models/task.model.js');
 exports.create = function (req, res) {
     // Create and Save a new Task
     if (!req.params.candidateid) {
-        res.status(400).send({ message: "Candidateid can not be empty" });
+        res.status(400).send({ message: "candidateId can not be empty" });
     } else {
         if (!req.body.content) {
             res.status(400).send({ message: "Task can not be empty" });
         }
-        var task = new Task(req.body);
+        var task = new Task();
+        task.title = req.body.title;
+        task.content = req.body.content;
+        task.status = req.body.status;
+        task.startDate = req.body.startDate;
+        task.endDate = req.body.endDate;
         task.candidateId = req.params.candidateid;
 
         task.save(function (err, data) {
