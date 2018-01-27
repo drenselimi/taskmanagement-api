@@ -70,6 +70,9 @@ exports.update = function (req, res) {
 
             task.title = req.body.title;
             task.content = req.body.content;
+            task.startDate = req.body.startDate;
+            task.endDate = req.body.endDate;
+            task.status = req.body.status;
 
             task.save(function (err, data) {
                 if (err) {
