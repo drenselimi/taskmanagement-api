@@ -5,7 +5,7 @@ exports.create = function (req, res) {
     if (!req.params.candidateid) {
         res.status(400).send({ message: "candidateId can not be empty" });
     } else {
-        if (!req.body) {
+        if (!req.body.content) {
             res.status(400).send({ message: "Task can not be empty" });
         } else {
             var task = new Task();
